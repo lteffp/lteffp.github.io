@@ -152,6 +152,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-最简单的hexo搭建并部署到github上 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最简单的搭建Hexo博客并部署到Github"><a href="#最简单的搭建Hexo博客并部署到Github" class="headerlink" title="最简单的搭建Hexo博客并部署到Github"></a>最简单的搭建Hexo博客并部署到Github</h1><h1 id="一-搭建Hexo博客"><a href="#一-搭建Hexo博客" class="headerlink" title="一.搭建Hexo博客"></a>一.搭建Hexo博客</h1><p>什么是Hexo</p>
+<ul>
+<li><p>Hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在Github和Heroku上。并且有很多人为其制作了很多优秀的主题（theme），你可以根据自己的喜好进行设置。</p>
+<ul>
+<li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</li>
+</ul>
+</li>
+</ul>
+<p>注意:</p>
+<pre><code>因为大多数都是widons版本，所以题主Windows版本，其他版本和widons差不多，有些是需要一些权限的，所以实践起来并没有很大的差别。
+</code></pre><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">安装Git</a></li>
+</ul>
+<p>前往Git官网下载对应的版本，后期需要Git到远程或者下一些资源，所以要用git。</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">安装Node.js</a></li>
+</ul>
+<p>前往Node.js官方下载网站，Hexo是基于Node.js的，所以要安装Node环境。</p>
+<p>关于上面的安装教程网上很多资料，题主就不多说了（可以百度）。</p>
+<ul>
+<li>安装Hexo</li>
+</ul>
+<p>先创建一个文件夹存放我们的博客文件（如果不满意或者第一次搭建，感觉博客不喜欢就直接把这个文件夹删掉重来）</p>
+<pre><code>自己可以先建一个文件夹比如：F:\blog\Hexo
+</code></pre><p>然后在F:\blog\Hexo目录下安装hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装完成后可以用hexo -v查看hexo版本<br><img src="https://img-blog.csdnimg.cn/20190417172100243.png" alt="hexo版本查看"><br>下来可以初始化博客：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init （初始化博客）</span><br></pre></td></tr></table></figure>
+<p> 启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s （server启动服务）</span><br></pre></td></tr></table></figure>
+<p>然后在浏览器中输入 localhost:4000 就可以看到自己的博客了  Hexo 便安装完成了</p>
+<h1 id="二、把hexo部署到github上"><a href="#二、把hexo部署到github上" class="headerlink" title="二、把hexo部署到github上"></a>二、把hexo部署到github上</h1><ul>
+<li>注册Github账户</li>
+</ul>
+<p>前往Github网站，注册一个新用户。用邮箱注册的一定前往邮箱去验证邮件。</p>
+<ul>
+<li>创建一个新的repository</li>
+</ul>
+<p>在自己的Github主页右上角,创建一个新的repository。比如我的Github用户名为lteffp，那么我创建的repository的名字应该是 lteffp.github.io 。<br>创建好如下图：<img src="https://img-blog.csdnimg.cn/20190417173909512.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0ZWZmcA==,size_16,color_FFFFFF,t_70" alt="仓库名和用户名一致"><br>将本地的文件部署（上传）到Github账户中<br>编辑本地Hexo目录下的文件_comfig.yml，在最后添加如下代码（在你修改时，把 lteffp 要替换成你自己的用户名）<br><img src="https://img-blog.csdnimg.cn/20190417175232253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0ZWZmcA==,size_16,color_FFFFFF,t_70" alt="复制仓库的URL"><br>更改hexo目录下的_comfig.yml文件：<br><img src="https://img-blog.csdnimg.cn/20190417175246621.png" alt="更改hexo的conf配置文件"></p>
+<pre><code>deploy:
+    type: git
+    repository: https://github.com/lteffp/lteffp.github.io.git            
+    branch: master
+</code></pre><ul>
+<li>.yml文件对格式规范要求很严格，type: repository: branch: 前面有两个空格，冒号后面都有一个空格。</li>
+</ul>
+<p>安装一个插件用于把hexo部署到github上</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>执行以下指令即可完成部署：</p>
+<pre><code>hexo g (hexo generate --生成hexo)
+hexo d（hexo deploy --部署到github）
+</code></pre><p>如果你是windows用户，那么当你执行$ hexo deploy命令的时候，可能会先后出现提示框让你输入你的Github用户名和Github密码，只要输入正确，上传就没有问题。</p>
+<p>现在我们的博客已经在Github上面部署成功了，可以在浏览器访问lteffp.github.io试试了。这里只是简单的把hexo部署到github上（好多细节还没有完成主题等），参考了一些资料，还有好多不足希望可以希望大家见谅。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/17/最简单的hexo搭建并部署到github上 /">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
