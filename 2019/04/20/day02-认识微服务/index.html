@@ -8,16 +8,78 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>lteffp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I love my country and I have a technology fever.">
-<meta property="og:type" content="website">
+  <meta name="description" content="0.学习目标 了解系统架构的演变 了解RPC与Http的区别 掌握HttpClient的简单使用 知道什么是SpringCloud 独立搭建Eureka注册中心 独立配置Robbin负载均衡  -Xms128m -Xmx128m 1.系统架构演变随着互联网的发展，网站应用的规模不断扩大。需求的激增，带来的是技术上的压力。系统架构也因此也不断的演进、升级、迭代。从单一应用，到垂直拆分，到分布式服务，">
+<meta property="og:type" content="article">
 <meta property="og:title" content="lteffp的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/day02-认识微服务/index.html">
 <meta property="og:site_name" content="lteffp的博客">
-<meta property="og:description" content="I love my country and I have a technology fever.">
+<meta property="og:description" content="0.学习目标 了解系统架构的演变 了解RPC与Http的区别 掌握HttpClient的简单使用 知道什么是SpringCloud 独立搭建Eureka注册中心 独立配置Robbin负载均衡  -Xms128m -Xmx128m 1.系统架构演变随着互联网的发展，网站应用的规模不断扩大。需求的激增，带来的是技术上的压力。系统架构也因此也不断的演进、升级、迭代。从单一应用，到垂直拆分，到分布式服务，">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="d:/tool/blog/hexo/source/_posts/1525529091749.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525529671801.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525530657919.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525530804753.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525532344817.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1526860071166.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525568965976.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525569352313.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525570921966.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1526877496885.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1526877647406.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1526877995530.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1526877988488.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525573702492.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525575656796.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525575903675.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525576816916.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525576909381.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525576950842.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525576999052.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525577029150.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525577106711.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525577911331.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525593139364.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525594222408.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525595012668.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525597885059.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525598231170.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525598312368.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525604959508.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525605081129.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525609225152.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525613025086.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525613051210.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525613160920.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525615070033.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525615095693.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525615026937.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525615165157.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525617060656.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525617542081.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525618396076.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525619257397.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525619515586.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525619546904.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525620305704.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525620483637.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525620787090.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525620835911.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622320277.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622357371.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622652849.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622699666.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622754316.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622817451.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525622876842.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525623193949.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525653565855.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525653715488.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/day02-认识微服务/assets/1525658269456.png">
+<meta property="og:updated_time" content="2019-04-20T08:11:31.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lteffp的博客">
-<meta name="twitter:description" content="I love my country and I have a technology fever.">
+<meta name="twitter:description" content="0.学习目标 了解系统架构的演变 了解RPC与Http的区别 掌握HttpClient的简单使用 知道什么是SpringCloud 独立搭建Eureka注册中心 独立配置Robbin负载均衡  -Xms128m -Xmx128m 1.系统架构演变随着互联网的发展，网站应用的规模不断扩大。需求的激增，带来的是技术上的压力。系统架构也因此也不断的演进、升级、迭代。从单一应用，到垂直拆分，到分布式服务，">
+<meta name="twitter:image" content="d:/tool/blog/hexo/source/_posts/1525529091749.png">
   
     <link rel="alternative" href="/atom.xml" title="lteffp的博客" type="application/atom+xml">
   
@@ -149,71 +211,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-测试文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/20/测试文件/">20190420215154</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/20/测试文件/" class="archive-article-date">
-  	<time datetime="2019-04-20T13:51:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/20/测试文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-day02-认识微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-day02-认识微服务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -897,6 +895,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -904,16 +923,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/20/day02-认识微服务/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/20/day02-认识微服务/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/04/20/测试文件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          20190420215154
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/17/最简单的hexo搭建并部署到github上 /" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -933,179 +1020,14 @@
 
 
 
-
   
-    <article id="post-最简单的hexo搭建并部署到github上 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="最简单的搭建Hexo博客并部署到Github"><a href="#最简单的搭建Hexo博客并部署到Github" class="headerlink" title="最简单的搭建Hexo博客并部署到Github"></a>最简单的搭建Hexo博客并部署到Github</h1><h1 id="一-搭建Hexo博客"><a href="#一-搭建Hexo博客" class="headerlink" title="一.搭建Hexo博客"></a>一.搭建Hexo博客</h1><p>什么是Hexo</p>
-<ul>
-<li><p>Hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在Github和Heroku上。并且有很多人为其制作了很多优秀的主题（theme），你可以根据自己的喜好进行设置。</p>
-<ul>
-<li>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</li>
-</ul>
-</li>
-</ul>
-<p>注意:</p>
-<pre><code>因为大多数都是widons版本，所以题主Windows版本，其他版本和widons差不多，有些是需要一些权限的，所以实践起来并没有很大的差别。
-</code></pre><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">安装Git</a></li>
-</ul>
-<p>前往Git官网下载对应的版本，后期需要Git到远程或者下一些资源，所以要用git。</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">安装Node.js</a></li>
-</ul>
-<p>前往Node.js官方下载网站，Hexo是基于Node.js的，所以要安装Node环境。</p>
-<p>关于上面的安装教程网上很多资料，题主就不多说了（可以百度）。</p>
-<ul>
-<li>安装Hexo</li>
-</ul>
-<p>先创建一个文件夹存放我们的博客文件（如果不满意或者第一次搭建，感觉博客不喜欢就直接把这个文件夹删掉重来）</p>
-<pre><code>自己可以先建一个文件夹比如：F:\blog\Hexo
-</code></pre><p>然后在F:\blog\Hexo目录下安装hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>安装完成后可以用hexo -v查看hexo版本<br><img src="https://img-blog.csdnimg.cn/20190417172100243.png" alt="hexo版本查看"><br>下来可以初始化博客：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init （初始化博客）</span><br></pre></td></tr></table></figure>
-<p> 启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s （server启动服务）</span><br></pre></td></tr></table></figure>
-<p>然后在浏览器中输入 localhost:4000 就可以看到自己的博客了  Hexo 便安装完成了</p>
-<h1 id="二、把hexo部署到github上"><a href="#二、把hexo部署到github上" class="headerlink" title="二、把hexo部署到github上"></a>二、把hexo部署到github上</h1><ul>
-<li>注册Github账户</li>
-</ul>
-<p>前往Github网站，注册一个新用户。用邮箱注册的一定前往邮箱去验证邮件。</p>
-<ul>
-<li>创建一个新的repository</li>
-</ul>
-<p>在自己的Github主页右上角,创建一个新的repository。比如我的Github用户名为lteffp，那么我创建的repository的名字应该是 lteffp.github.io 。<br>创建好如下图：<img src="https://img-blog.csdnimg.cn/20190417173909512.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0ZWZmcA==,size_16,color_FFFFFF,t_70" alt="仓库名和用户名一致"><br>将本地的文件部署（上传）到Github账户中<br>编辑本地Hexo目录下的文件_comfig.yml，在最后添加如下代码（在你修改时，把 lteffp 要替换成你自己的用户名）<br><img src="https://img-blog.csdnimg.cn/20190417175232253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0ZWZmcA==,size_16,color_FFFFFF,t_70" alt="复制仓库的URL"><br>更改hexo目录下的_comfig.yml文件：<br><img src="https://img-blog.csdnimg.cn/20190417175246621.png" alt="更改hexo的conf配置文件"></p>
-<pre><code>deploy:
-    type: git
-    repository: https://github.com/lteffp/lteffp.github.io.git            
-    branch: master
-</code></pre><ul>
-<li>.yml文件对格式规范要求很严格，type: repository: branch: 前面有两个空格，冒号后面都有一个空格。</li>
-</ul>
-<p>安装一个插件用于把hexo部署到github上</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>执行以下指令即可完成部署：</p>
-<pre><code>hexo g (hexo generate --生成hexo)
-hexo d（hexo deploy --部署到github）
-</code></pre><p>如果你是windows用户，那么当你执行$ hexo deploy命令的时候，可能会先后出现提示框让你输入你的Github用户名和Github密码，只要输入正确，上传就没有问题。</p>
-<p>现在我们的博客已经在Github上面部署成功了，可以在浏览器访问lteffp.github.io试试了。这里只是简单的把hexo部署到github上（好多细节还没有完成主题等），参考了一些资料，还有好多不足希望可以希望大家见谅。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/17/最简单的hexo搭建并部署到github上 /">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2019/04/14/hello-world/" class="archive-article-date">
-  	<time datetime="2019-04-14T15:50:42.781Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -1128,8 +1050,8 @@ hexo d（hexo deploy --部署到github）
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
